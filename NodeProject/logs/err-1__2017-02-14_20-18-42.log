@@ -1,2 +1,0 @@
-2017-02-14 20:18 +08:00: Tue, 14 Feb 2017 12:18:08 GMT express-session deprecated undefined resave option; provide resave option at app.js:58:9
-2017-02-14 20:18 +08:00: Tue, 14 Feb 2017 12:18:08 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:58:9
