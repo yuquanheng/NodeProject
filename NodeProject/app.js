@@ -1,18 +1,18 @@
-var express = require('express');
+﻿var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser'); 
 var session = require('express-session');
 var redisStore = require('connect-redis')(session);
 
-var xunjian = require('./routes/巡检报表/xunjian');//巡检报表
-var insuserinfo = require('./routes/人员信息管理/insuserinfo');//用户信息表
-var publicfile = require('./routes/文件下载/publicfile');//图像文件下载
-var xunjianmails = require('./routes/里程管理/xunjianmails');//里程报表
-var xunjianmailsdetail = require('./routes/里程管理/xunjianmailsdetail');//里程报表详细
-var feature = require('./routes/手机参数配置/feature');
+var xunjian = require('./routes/xunjianProject/xunjian');//巡检报表
+var insuserinfo = require('./routes/userProject/insuserinfo');//用户信息表
+var publicfile = require('./routes/file/publicfile');//图像文件下载
+var xunjianmails = require('./routes/milesProject/xunjianmails');//里程报表
+var xunjianmailsdetail = require('./routes/milesProject/xunjianmailsdetail');//里程报表详细
+var feature = require('./routes/featureProject/feature');
 
 var app = express();
 // view engine setup
