@@ -1,0 +1,5 @@
+2017-01-19 16:35 +08:00: 制作矩形图
+2017-01-19 16:35 +08:00: type 类型 ro
+2017-01-19 16:35 +08:00: 视图sql 语句 select * from dbo.GIS_MileageReport where ReportDate between '2016-01-19' and '2017-01-19'
+2017-01-19 16:35 +08:00: connect success
+2017-01-19 16:35 +08:00: the datacounts 329

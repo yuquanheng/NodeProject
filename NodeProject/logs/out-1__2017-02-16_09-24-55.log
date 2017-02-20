@@ -1,0 +1,12 @@
+2017-02-16 09:24 +08:00: [0mGET /xunjian/table/osgroup?eid=229 [0m- [0m- ms - -[0m
+2017-02-16 09:24 +08:00: 部门请求 数据到来
+2017-02-16 09:24 +08:00: 传输的公司名字  229
+2017-02-16 09:24 +08:00: 检测xianlu229缓存是否存在
+2017-02-16 09:24 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-02-16 09:24 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-02-16 09:24 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-02-16 09:24 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-02-16 09:24 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-02-16 09:24 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-02-16 09:24 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-02-16 09:24 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379

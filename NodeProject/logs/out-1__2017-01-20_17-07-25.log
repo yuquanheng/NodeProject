@@ -1,0 +1,8 @@
+2017-01-20 17:06 +08:00: 查询单个数据请求到来
+2017-01-20 17:06 +08:00: 最终sql语句 select * from dbo.Elec_InspUserInfo where IDCardNo = '412822199210115879'
+2017-01-20 17:06 +08:00: connect success
+2017-01-20 17:06 +08:00: the datacounts 1
+2017-01-20 17:06 +08:00: 单个用户返回数据 {"ID":14,"IDCardNo":"412822199210115879","NFCID":"6789","Phone":"15538127396","UserName":"yuhang","Gender":0,"Nation":"汉族","ADDRESS":"河南","PhotoPath":"http://220.248.36.100:3000/public/images/bea.jpg","Describe":"","E_ID":0,"E_Name":"","OrgID":0,"OrgName":"","OperTime":"1900-01-01T00:00:00.000Z"}
+2017-01-20 17:06 +08:00: [0mGET /insuserinfo/detail?idcard=412822199210115879 [32m200 [0m33.094 ms - 305[0m
+2017-01-20 17:06 +08:00: 文件存在
+2017-01-20 17:06 +08:00: [0mGET /public/images/bea.jpg [32m200 [0m44.460 ms - -[0m

@@ -1,0 +1,16 @@
+2017-01-20 17:06 +08:00: insuserinfo有数据请求到来
+2017-01-20 17:06 +08:00: 请求的单位： 
+2017-01-20 17:06 +08:00: 请求的部门： 
+2017-01-20 17:06 +08:00: 请求的电话： 
+2017-01-20 17:06 +08:00: 请求的用户名： 
+2017-01-20 17:06 +08:00: 请求的NFC： 
+2017-01-20 17:06 +08:00: 请求的sEcho： 1
+2017-01-20 17:06 +08:00: 当前分页的起始位置 0
+2017-01-20 17:06 +08:00: 请求每一页显示的行数： 5
+2017-01-20 17:06 +08:00: 最终拼接的查询字符串为 select * from dbo.Elec_InspUserInfo
+2017-01-20 17:06 +08:00: connect success
+2017-01-20 17:06 +08:00: the datacounts 7
+2017-01-20 17:06 +08:00: 执行sql语句成功 
+2017-01-20 17:06 +08:00: 数据库存在数据,正在进行处理
+2017-01-20 17:06 +08:00: 翻页起始位置0
+2017-01-20 17:06 +08:00: [0mGET /insuserinfo?sEcho=1&iColumns=10&sColumns=IDCardNo%2CE_Name%2COrgName%2CUserName%2CPhone%2CNFCID%2CGender%2CNation%2CADDRESS%2Cmore&iDisplayStart=0&iDisplayLength=5&mDataProp_0=0&mDataProp_1=1&mDataProp_2=2&mDataProp_3=3&mDataProp_4=4&mDataProp_5=5&mDataProp_6=6&mDataProp_7=7&mDataProp_8=8&mDataProp_9=9&sSearch=&bRegex=false&sSearch_0=&bRegex_0=false&bSearchable_0=false&sSearch_1=&bRegex_1=false&bSearchable_1=false&sSearch_2=&bRegex_2=false&bSearchable_2=false&sSearch_3=&bRegex_3=false&bSearchable_3=false&sSearch_4=&bRegex_4=false&bSearchable_4=false&sSearch_5=&bRegex_5=false&bSearchable_5=false&sSearch_6=&bRegex_6=false&bSearchable_6=false&sSearch_7=&bRegex_7=false&bSearchable_7=false&sSearch_8=&bRegex_8=false&bSearchable_8=false&sSearch_9=&bRegex_9=false&bSearchable_9=false&iSortCol_0=4&sSortDir_0=desc&iSortingCols=1&bSortable_0=false&bSortable_1=false&bSortable_2=false&bSortable_3=false&bSortable_4=false&bSortable_5=false&bSortable_6=false&bSortable_7=false&bSortable_8=false&bSortable_9=false&ename=&osname=&username=&nfc=&phone=&_=1484903212280 [32m200 [0m79.160 ms - 595[0m
