@@ -1,0 +1,12 @@
+2017-01-18 20:11 +08:00: 部门请求 数据到来
+2017-01-18 20:11 +08:00: 传输的公司名字  123
+2017-01-18 20:11 +08:00: 检测bumen123缓存是否存在
+2017-01-18 20:11 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-01-18 20:12 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-01-18 20:12 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-01-18 20:12 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-01-18 20:12 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-01-18 20:12 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-01-18 20:12 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-01-18 20:12 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2017-01-18 20:12 +08:00: ConnectError: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379

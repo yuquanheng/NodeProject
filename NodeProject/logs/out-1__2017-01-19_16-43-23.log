@@ -1,0 +1,22 @@
+2017-01-19 16:43 +08:00: 数据库查询操作
+2017-01-19 16:43 +08:00: 收到date 2017-01-19
+2017-01-19 16:43 +08:00: 收到phone 13341788105
+2017-01-19 16:43 +08:00: 收到ename 浙江省公安厅高速公路交警总队
+2017-01-19 16:43 +08:00: 进去查询
+2017-01-19 16:43 +08:00: 详细查询中的 sql语句 select * from dbo.GIS_MileageDetailReport where convert(varchar(24),ReportDate,121) like '%2017-01-19%' and Phone = 13341788105
+2017-01-19 16:43 +08:00: connect success
+2017-01-19 16:43 +08:00: the datacounts 1
+2017-01-19 16:43 +08:00: 存在数据
+2017-01-19 16:43 +08:00: 不够显示一页了
+2017-01-19 16:43 +08:00: [0mGET /milesdetail?sEcho=1&iColumns=10&sColumns=ReportDate%2Cphone%2Cname%2Cbgtime%2Cendtime%2Cmiles%2Coname%2Cename%2Coid%2Ceid&iDisplayStart=0&iDisplayLength=5&mDataProp_0=0&mDataProp_1=1&mDataProp_2=2&mDataProp_3=3&mDataProp_4=4&mDataProp_5=5&mDataProp_6=6&mDataProp_7=7&mDataProp_8=8&mDataProp_9=9&iSortCol_0=0&sSortDir_0=asc&iSortingCols=1&bSortable_0=true&bSortable_1=true&bSortable_2=true&bSortable_3=true&bSortable_4=true&bSortable_5=true&bSortable_6=true&bSortable_7=true&bSortable_8=true&bSortable_9=true&date=2017-01-19&phone=13341788105&ename=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%85%AC%E5%AE%89%E5%8E%85%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF%E4%BA%A4%E8%AD%A6%E6%80%BB%E9%98%9F&_=1484815388417 [32m200 [0m25.245 ms - 224[0m
+2017-01-19 16:43 +08:00: 数据库查询操作
+2017-01-19 16:43 +08:00: 收到date 2017-01-19
+2017-01-19 16:43 +08:00: 收到phone 13341788105
+2017-01-19 16:43 +08:00: 收到ename 浙江省公安厅高速公路交警总队
+2017-01-19 16:43 +08:00: 进去查询
+2017-01-19 16:43 +08:00: 详细查询中的 sql语句 select * from dbo.GIS_MileageDetailReport where convert(varchar(24),ReportDate,121) like '%2017-01-19%' and Phone = 13341788105
+2017-01-19 16:43 +08:00: connect success
+2017-01-19 16:43 +08:00: the datacounts 1
+2017-01-19 16:43 +08:00: 存在数据
+2017-01-19 16:43 +08:00: 不够显示一页了
+2017-01-19 16:43 +08:00: [0mGET /milesdetail?sEcho=1&iColumns=10&sColumns=ReportDate%2Cphone%2Cname%2Cbgtime%2Cendtime%2Cmiles%2Coname%2Cename%2Coid%2Ceid&iDisplayStart=0&iDisplayLength=5&mDataProp_0=0&mDataProp_1=1&mDataProp_2=2&mDataProp_3=3&mDataProp_4=4&mDataProp_5=5&mDataProp_6=6&mDataProp_7=7&mDataProp_8=8&mDataProp_9=9&iSortCol_0=0&sSortDir_0=asc&iSortingCols=1&bSortable_0=true&bSortable_1=true&bSortable_2=true&bSortable_3=true&bSortable_4=true&bSortable_5=true&bSortable_6=true&bSortable_7=true&bSortable_8=true&bSortable_9=true&date=2017-01-19&phone=13341788105&ename=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%85%AC%E5%AE%89%E5%8E%85%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF%E4%BA%A4%E8%AD%A6%E6%80%BB%E9%98%9F&_=1484815402236 [32m200 [0m69.219 ms - 224[0m

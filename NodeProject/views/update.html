@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改用户信息页面</title>
+    <script type="text/javascript">
+        function update(){
+            var id = document.getElementById("id").value;
+            var name = document.getElementById("name").value;
+            window.location.href = "/userinfo/update/" + id + "/" + name;
+        }
+    </script>
+</head>
+<body>
+<table>
+    <form method="post">
+        {{each result as val index}}
+        <tr>
+            <td>用户姓名:</td>
+            <input type="hidden" value="{{val.id}}" id="id" />
+            <td><input type="text" id="name" value="{{val.name}}"></td>
+            <td><input type="button" value="修改" onclick="javascript:update()"></td>
+        </tr>
+        {{/each}}
+
+    </form>
+</table>
+
+</body>
+</html>

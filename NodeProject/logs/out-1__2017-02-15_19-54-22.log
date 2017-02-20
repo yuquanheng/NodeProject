@@ -1,0 +1,33 @@
+2017-02-15 19:54 +08:00: bumen
+2017-02-15 19:54 +08:00: bumen find ename ÉÂÎ÷¼àÓü
+2017-02-15 19:54 +08:00: bumendone
+2017-02-15 19:54 +08:00: 部门查询 ÉÂÎ÷¼àÓü
+2017-02-15 19:54 +08:00: connect success
+2017-02-15 19:54 +08:00: the datacounts 0
+2017-02-15 19:54 +08:00: 没有数据
+2017-02-15 19:54 +08:00: connect success
+2017-02-15 19:54 +08:00: { RequestError: Incorrect syntax near '='.
+    at RequestError (D:\xungeng\GIS1\node_modules\tedious\lib\errors.js:34:12)
+    at Parser.<anonymous> (D:\xungeng\GIS1\node_modules\tedious\lib\connection.js:207:36)
+    at emitOne (events.js:96:13)
+    at Parser.emit (events.js:188:7)
+    at Parser.<anonymous> (D:\xungeng\GIS1\node_modules\tedious\lib\token\token-stream-parser.js:42:15)
+    at emitOne (events.js:96:13)
+    at Parser.emit (events.js:188:7)
+    at readableAddChunk (D:\xungeng\GIS1\node_modules\readable-stream\lib\_stream_readable.js:213:18)
+    at Parser.Readable.push (D:\xungeng\GIS1\node_modules\readable-stream\lib\_stream_readable.js:172:10)
+    at Parser.Transform.push (D:\xungeng\GIS1\node_modules\readable-stream\lib\_stream_transform.js:123:32)
+    at doneParsing (D:\xungeng\GIS1\node_modules\tedious\lib\token\stream-parser.js:87:17)
+    at D:\xungeng\GIS1\node_modules\tedious\lib\token\infoerror-token-parser.js:46:5
+    at D:\xungeng\GIS1\node_modules\tedious\lib\token\infoerror-token-parser.js:13:19
+    at D:\xungeng\GIS1\node_modules\tedious\lib\token\stream-parser.js:224:9
+    at Parser.awaitData (D:\xungeng\GIS1\node_modules\tedious\lib\token\stream-parser.js:121:9)
+    at Parser.readUInt32LE (D:\xungeng\GIS1\node_modules\tedious\lib\token\stream-parser.js:221:12)
+  message: 'Incorrect syntax near \'=\'.',
+  code: 'EREQUEST',
+  number: 102,
+  state: 1,
+  class: 15,
+  serverName: 'THINGTALKSH',
+  procName: '',
+  lineNumber: 1 }
