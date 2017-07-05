@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+        <title>陕西监狱腕带点名系统</title>
+        <!-- Main styles for this application -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                   选择功能
+                </h4>
+            </div>
+            <div class="modal-body">
+                
+                <div class="container" id="areacon">
+                     <div class="row">
+                          <div class="col-sm-4">
+                            <div class="card card-inverse btn card-primary" onClick = "test(1);">
+                              <div class="card-block p-b-0">
+                                  <br/>
+                                  <br/>
+                                  <h4 class="m-b-0">早起点名</h4>
+                                  
+                              </div>
+                              <div class="chart-wrapper p-x-1">
+                                  <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px none; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                                      <canvas id="card-chart1" class="chart chart-line" height="70" style="width: 373px; height: 70px;" width="373"></canvas>
+                                  </div>
+                              </div>
+                          </div>
+                          </div>
+                            <div class="col-sm-4">
+                               </div>
+                          <div class="col-sm-4">
+                            <div class="card card-inverse btn  card-warning" onClick = "test(3);">
+                              <div class="card-block p-b-0">
+                                  <br/>
+                                  <br/>
+                                  <h4 class="m-b-0">用餐点名</h4>
+                              </div>
+                              <div class="chart-wrapper p-x-1">
+                                  <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px none; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                                      <canvas id="card-chart1" class="chart chart-line" height="70" style="width: 373px; height: 70px;" width="373"></canvas>
+                                  </div>
+                              </div>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                               <div class="col-sm-4">
+                               </div>
+                             <div class="col-sm-4">
+                             <div class="card card-inverse btn  " onClick = "test(2);" style="background-color: #FF8800">
+                              <div class="card-block p-b-0">
+                                  <br/>
+                                  <br/>
+                                  <h4 class="m-b-0">车间点名</h4>
+                              </div>
+                              <div class="chart-wrapper p-x-1">
+                                  <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px none; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                                      <canvas id="card-chart1" class="chart chart-line" height="70" style="width: 373px; height: 70px;" width="373"></canvas>
+                                  </div>
+                              </div>
+                          </div>
+                          </div>
+                            <div class="col-sm-4">
+                               </div>
+                      </div>
+                     <div class="row">
+                          <div class="col-sm-4">
+                              <div class="card card-inverse btn  card-danger" onClick = "test(5);">
+                              <div class="card-block p-b-0">
+                                  <br/>
+                                  <br/>
+                                  <h4 class="m-b-0">宿舍点名</h4>
+                              </div>
+                              <div class="chart-wrapper p-x-1">
+                                  <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px none; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                                      <canvas id="card-chart1" class="chart chart-line" height="70" style="width: 373px; height: 70px;" width="373"></canvas>
+                                  </div>
+                              </div>
+                          </div>
+                          </div>
+                          <div class="col-sm-4">
+                               </div>
+                          <div class="col-sm-4">
+                              <div class="card card-inverse btn" onClick = "test(6);" style="background-color:#CD853F">
+                              <div class="card-block p-b-0">
+                                  <br/>
+                                  <br/>
+                                  <h4 class="m-b-0">熄灯点名</h4>
+                         
+                              </div>
+                              <div class="chart-wrapper p-x-1">
+                                  <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px none; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                                      <canvas id="card-chart1" class="chart chart-line" height="70" style="width: 373px; height: 70px;" width="373"></canvas>
+                                  </div>
+                              </div>
+                          </div>
+                          </div>
+                     </div>
+                </div>
+                               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+        <div class="container center">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="card-group vamiddle">
+                        <div class="card  p-a-2">
+                            <div class="card-block">
+                                <h1 style="text-align: center;">陕西监狱腕带点名系统</h1>
+                                <div class="input-group m-b-1" style="margin-top: 20px;">
+                                    <span class="input-group-addon"><i class="icon-user"></i></span>
+                                    <input type="text" id="name" class="form-control" placeholder="Username">
+                                </div>
+                                <div class="input-group m-b-2">
+                                    <span class="input-group-addon"><i class="icon-lock"></i></span>
+                                    <input type="password" id= "phone" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="row">
+                                    
+                                    <div class="col-xs-12" style="text-align: center">
+                                        <button type="button"  id="login"   class="btn btn-primary p-x-2" data-toggle="modal" data-target="#myModal">Login</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap and necessary plugins -->
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/tether.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script>
+        function verticalAlignMiddle()
+        {
+            var bodyHeight = $(window).height()/2;
+            var formHeight = $('.vamiddle').height();
+            var marginTop = (bodyHeight / 2) - (formHeight / 2);
+            if (marginTop > 0)
+            {
+                $('.vamiddle').css('margin-top', marginTop);
+            }
+        }
+        $(document).ready(function()
+        {
+            verticalAlignMiddle();
+            $('#myModal').modal('hide');
+            $("#login").on('click',function(event){
+                 
+                 window.localStorage.removeItem("OPERP");
+                 window.localStorage.setItem("OPERP",$("#name").val());
+                 $.ajax({  
+                       type : "GET",  //提交方式  
+                       url : "http://127.0.0.1:3000/dianming/guard/getArea?name="+$("#name").val()+"&phone="+$("#phone").val()+"&time="+new Date().getTime(),//路径 
+                       success : function(data) { 
+                           
+                           console.log("aids "+JSON.stringify(data));
+                           if(data.length == 0)
+                            {
+                              //
+                              $('#myModal').modal('hide');
+                              alert("没有该警员的区域信息");
+
+                              return;
+                            }
+
+                            var areaids = data[0];
+                            var arenames = data[1]; 
+                            var datalength =areaids.length;
+
+                            if($("#name").val() != "5380")
+                            {
+                                  $("#areacon").empty();
+                                  if(datalength >0)
+                                  {
+                                      var html="";
+                                      for(var i=0;i<datalength;i++)
+                                      {
+                                         
+                                        var area = areaids[i];
+                                        var areaname = arenames[i] ;
+                                         
+                                        html = html + getitem(area,areaname);
+                                      
+                                       
+
+                                      }
+                                      $("#areacon").append(html);
+                                    
+                                  }
+                                  else
+                                  {
+                                     
+                                  }
+                            }
+                            else
+                            {
+                                var user = {areaid:"196",areaname:"监狱一车间"};
+                                window.localStorage.removeItem("OperPerson");
+                                window.localStorage.setItem("OperPerson",JSON.stringify(user));
+
+                            }
+                         }
+                        }); 
+            });
+        });
+        $(window).bind('resize', verticalAlignMiddle);
+        function getitem(id,name)
+        {
+            var hid = id;
+            var hname = JSON.stringify(name);
+            console.log("id 值");
+            var areaitem = "<div style='margin-top:10px' class='row'><button  class ='btn btn-primary col-sm-12' onclick = 'into("+hid+","+hname+");'>"+name+"</button></div>";
+
+             return areaitem;
+        }
+        
+        function into(id,name)
+        {
+            var user = {areaid:id,areaname:name};
+            window.localStorage.removeItem("OperPerson");
+            window.localStorage.setItem("OperPerson",JSON.stringify(user));
+            //window.location.href = "index1.html";
+
+           $.ajax({  
+                type : "GET",  //提交方式  
+                url : "http://127.0.0.1:3000/dianming/area/getType?id="+id+"&time="+new Date().getTime(),//路径 
+                success : function(data) { 
+                   
+                   if(data.length>0)
+                   {
+                     var areatype = data[0]['L_LineType'];
+                     console.log("区域类型 "+areatype);
+                     window.localStorage.removeItem("LINETYPE");
+                     window.localStorage.setItem("LINETYPE",areatype);
+
+                     window.localStorage.removeItem("OPER");
+                     if(areatype == 4)
+                     {
+                        window.location.href = "indexWork.html";
+                     }
+                     if(areatype == 5)
+                     {
+                        window.location.href = "indexRest.html";
+                     }
+                     if(areatype == 6)
+                     {
+                        //window.location.href = "indexWork.html";
+                     }
+                     if(areatype == 7)
+                     {
+                        window.location.href = "indexEat.html";
+                     }
+                   }
+
+                 }
+                }); 
+    
+
+        }
+       function test(ab)
+       {
+           
+           window.localStorage.removeItem("OPER");
+           if(ab == "1")
+           {
+             window.location.href = "indexRest1.html";
+           }
+           if(ab == "2")
+           {
+             window.location.href = "indexWork1.html";
+           }
+           if(ab == "3")
+           {
+            //用餐区域是
+            window.location.href = "indexEat1.html";
+           }
+           if(ab == "4")
+           {
+            window.location.href = "indexWork1.html";
+           }
+           if(ab == "5")
+           {
+            window.location.href = "indexRest2.html";
+           }
+           if(ab == "6")
+           {
+            window.location.href = "indexRest3.html";
+           }
+       }
+        </script>
+    </body>
+</html>

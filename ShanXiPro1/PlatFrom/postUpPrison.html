@@ -1,0 +1,447 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>犯人信息编辑</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+	<style>
+	/*table td 最长列宽设置*/
+	.text-center
+	{
+	    width:140px;
+	    text-align:center;
+	}
+	/*table td 值为数字的列宽设置*/
+	.textnumber
+	{
+		width:65px;
+		text-align:center;
+	}
+	/*table td 值为字符串的列宽设置*/
+	.textname
+	{
+		width:85px;
+		text-align:center;  
+	}
+	/*table td 值为日期的列宽设置*/
+	.texttime
+	{ 
+		width:135px;
+		text-align:center;
+	}
+	/*table td 隐藏的列的宽度设置*/
+	.textno
+	{ 
+		width:10px;
+		text-align:center; 
+	}
+	/*table样式*/
+	.tbcss
+	{
+		padding: 0px;
+		margin: 0px;
+		border-collapse: collapse;
+		border-spacing: 0;
+		font-size: 10pt;
+		width: 100%;
+		border: 1px solid #CDDBE8;
+		background-color: #FFFFFF;
+		
+	}	
+	/*td左边标题样式*/
+	.tdcss1
+	{
+		padding: 2px 6px 2px 6px;
+		border: 1px solid #CDDBE8;
+		height: 22px;
+		background-color: #FCFDFE;
+		text-align: right;
+		vertical-align: middle;
+	}
+	/*td右边标题样式*/
+	.tdcss2
+	{
+		padding: 2px 6px 2px 6px;
+		border: 1px solid #CDDBE8;
+		height: 22px;
+		background-color: #FFFFFF;
+		vertical-align: middle;
+		text-align: left;
+	}	
+	</style>
+</head>
+<body>            
+  <div class = "row">
+		<div class = "col-md-2">
+      
+    </div>
+    <div class="box col-md-8">
+        <div class="box-header well" data-original-title="">
+        <label>犯人信息编辑</label>
+        </div>	
+			  <form id="myform"  enctype="multipart/form-data" method="post">
+                <table class="tbcss">
+                <tbody>
+				            <tr>
+                    <th class="tdcss1">
+                      单位
+                    </th>
+                    <td class="tdcss2">
+						            <select id="E_ID" name="E_ID" type="text" style="width:20.5%">
+                        <option value=" ">  </option>
+                        </select><span style="color: Red;">*</span>
+                    </td>
+                    <td rowspan="6" class="tdcss" style="width: 15%">
+                        <input name="PhotoPath" id="userForm_picPath" type="hidden">
+                        <div style="height: 160px; overflow: hidden; border: 1px solid blue;" class="image_container" id="preview">
+                          <!-- <img id="preview" style="height:130px;width:117px;border-width:0px;"/>-->
+					               <img id="preview1" style="height:160px;border-width:0px; "/>
+					              </div>
+                        <div id="upload-button" style="cursor: pointer; position: relative; overflow: hidden; direction: ltr;" class="jUploader-button">
+                            <button class="btn">图片</button>
+                            <input  id="file_upload" type="file" name = "file" style="position: absolute; right: 0px; top: 0px; margin: 0px; opacity: 0; padding: 0px; font-family: Arial; font-size: 118px; vertical-align: baseline; cursor: pointer;">
+					             </div>
+                        <!-- div里的span必须保留，用来放文字的 -->
+                    </td>
+                </tr>
+                <tr>
+                    <th class="tdcss1">
+                     区域
+                    </th>
+                    <td class="tdcss2">
+                        <input id="areanow" name="areanow" style="width: 20.5%">
+                        
+                    </td>
+                </tr>
+                  <tr>
+                    <th class="tdcss1">
+                        允许区域
+                    </th>
+                    <td class="tdcss2">
+                        <input id="areagroup" name="areagroup"></input><span style="color: Red;">*</span>
+                        <select id="area" name="area" maxlength="50" type="text" style="width:10%">
+                        <option vlaue=""> </option>
+                        </select>
+                        <label>请选择区域</label>
+                        <input id="areagrouptrue" name="areagrouptrue" style="visibility: hidden"></input>
+                        <input id="userid" name="userid" style="visibility: hidden"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="tdcss1">
+                        姓名
+                    </th>
+                    <td class="tdcss2">
+                        <input id="UserName" name="UserName" type="text"><span style="color: Red;">*</span>      
+                    </td>
+                </tr>
+                <tr>
+                    <th class="tdcss1">
+                        性别
+                    </th>
+                    <td class="tdcss2" >
+                        <select id="Gender" name="Gender">
+                            <option value="0">男</option>
+                            <option value="1">女</option>
+                        </select>
+                    </td>
+                </tr>
+                
+				        <tr>
+                    <th class="tdcss1">
+                        身份证号码
+                    </th>
+                    <td class="tdcss2" colspan="2">
+                        <input id="CardID" name="CardID">
+                    </td>
+                </tr>
+                <tr>
+                    <th class="tdcss1" >
+                         RFID号码
+					          </th>
+                    <td class = "tdcss2" colspan="2">
+                        <input id="rfid" name="rfid" maxlength="50" type="text"><span style="color: Red;">*</span>
+                    </td><span style="color: Red;">*</span>
+                </tr>
+                
+               
+                <tr>
+                    <th class="tdcss1">
+                        地址
+                    </th>
+                    <td class="tdcss2" colspan="2">
+                        <textarea cols="2"  rows="2" style="width: 300px" id="address" name="address"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="tdcss1">
+                        备注
+                    </th>
+                    <td class="tdcss2" colspan="2">
+                        <textarea cols="2"  rows="2" style="width: 300px" id="remark" name="remark"></textarea>
+                    </td>
+                </tr>
+				
+				        <tr>
+                    <td class="tdcss1" colspan="3">
+                        <input value="确认" class="btn btn-primary" id="btnOK" type="button">
+                        <input value="关闭" class="btn btn-primary" id="btnClose" type="button">
+                    </td>
+                </tr>
+            </tbody>
+			</table>
+	</form>		
+</div>
+</div>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script>
+var picturepath = "";
+var allareas = [];
+$(document).ready(function(){
+  var ob = window.localStorage.getItem("UserID");
+  var jss = JSON.parse(ob);
+  //var user = {'eid':aData[1],'id':aData[2],'aid':aData[3],'name':aData[4],'rfid':aData[5],'anablearea':aData[10],'anableareaname':aData[11]};
+  $("#areanow").val(jss.aid);
+  $("#areagroup").val(jss.anableareaname);
+  $("#UserName").val(jss.name);
+  $("#rfid").val(jss.rfid);
+  $("#userid").val(jss.id);
+	$.ajax({  
+           async: false,
+           type : "GET",  //提交方式  
+           url :"http://127.0.0.1:3000/dianming/enterprise/getEnterpriseInfo?&time="+new Date().getTime(),//路径  
+           success : function(result) {//返回数据根据结果进行相应的处理  
+              var datalength = result.length;
+              if(result.length == 0)
+      			  {
+      			      alert("没有该用户数据");
+      			  }
+      			  else
+      			  {
+                $("#E_ID").empty();
+      		      for(var i=0;i<datalength;i++)
+                {
+                  var item = result[i];
+                  var option = "<option value="+item['E_ID']+">"+item['E_Name']+"</option>";
+
+                  $("#E_ID").append(option);
+
+                }
+                 $("#E_ID").val(jss.eid);
+      			  }
+            }  
+         });
+   $.ajax({  
+           type : "GET",  //提交方式  
+           url : "http://127.0.0.1:3000/dianming/area/getArea?time="+new Date().getTime(),//路径 
+           success : function(data) { 
+                var datalength =data.length;
+                if(datalength)
+                {
+                    $("#area").empty();
+                    $("#area").append('<option value=" ">   </option>');
+                    allareas = data;
+                    console.log("数据组长度 "+datalength);
+                    for(var i=0;i<datalength;i++)
+                    {
+                        var lid = data[i].L_ID;
+                        var lname = data[i].L_Name;
+                        var html = '<option value='+lid+'>'+lname+'</option>';
+                        $("#area").append(html);
+                       
+                    }
+                }
+                
+             }
+            }); 
+    $("#area").change(function(){
+
+             var select = $("#area option:selected").text();//本次选中的区域
+             var alla = $("#areagroup").val();
+             if(alla != "")
+             {
+                if(alla.indexOf(select) >=0)
+                {
+                  console.log("重复数据");
+                }
+                else
+                {
+                  alla = alla +","+select;  
+                }
+               
+             }
+             else
+             {
+              alla = select;
+             }
+           $("#areagroup").val(alla);
+         });
+
+    $("#file_upload").change(function (){
+        var $file = $(this);
+        var fileObj = $file[0];
+        var windowURL = window.URL || window.webkitURL;
+        var dataURL;
+		    $("#preview1").show();
+        var $img = $("#preview1");
+        if (fileObj && fileObj.files && fileObj.files[0]) 
+        {
+            dataURL = windowURL.createObjectURL(fileObj.files[0]);
+            $img.attr('src', dataURL);
+        } 
+        else
+        {
+            dataURL = $file.val();
+            var imgObj = document.getElementById("preview1");
+            // 两个坑:
+            // 1、在设置filter属性时，元素必须已经存在在DOM树中，动态创建的Node，也需要在设置属性前加入到DOM中，先设置属性在加入，无效；
+            // 2、src属性需要像下面的方式添加，上面的两种方式添加，无效；
+            imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+            imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+
+        }
+		   $("#userForm_picPath").val(dataURL);
+    });
+	
+	$('#btnOK').on('click',function (event){
+	
+	  console.log("具体信息确定键");
+    gettruearea();
+	  var formData = new FormData($( "#myform" )[0]);
+       var params = $("#example").serialize();  
+            $.ajax( {  
+                type : "POST",  
+                url : "http://127.0.0.1:3000/dianming/prison/update",  
+                data : formData,  
+				        cache: false,  
+                contentType: false,  
+                processData: false,  
+                success : function(msg) {  
+                    alert(msg);  
+                }  
+            });  
+	}); 
+
+	$('#btnClose').on('click',function (event){
+	  console.log("具体信息取消键");
+	  window.opener = null;
+    window.open('', '_self');
+    window.close(); 
+	}); 
+
+	//
+	$("#preview1").hide();
+	console.log("加载图片");
+	loadImg(picturepath,addImg);
+});
+
+//图片处理
+function loadImg(url,callback)
+{
+    var img = new Image();
+    img.onload = function()
+    {
+      img.onload = null;
+      callback(img);
+    }
+    img.src=url;
+    img.width ="202";
+    img.height = "202";
+   // img.attr("defaulturl","../images/img.png");
+}
+function addImg(img)
+{
+    $(img).appendTo($("#preview"))
+}
+//
+function checkUser(){
+ //进行控制操作
+}
+function getParam(name)
+{
+ var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+ var r = window.location.search.substr(1).match(reg);
+ if(r!=null)
+ return  decodeURI(r[2]); 
+ return null;
+}
+function gettruearea()
+{
+   var anable = "";
+   console.log("数据 "+JSON.stringify(allareas));
+   var tru = $("#areagroup").val();
+   var trugroup = tru.split(",");
+   for(var i=0;i<trugroup.length;i++)
+   {
+    var item = trugroup[i];
+     for(var j=0;j<allareas.length;j++)
+     {
+         var item1 = allareas[j];
+         if(item == item1.A_Name)
+         {
+           
+           if(anable)
+           {
+
+               anable = anable+","+item1.A_ID;
+           
+           }
+           else
+           {
+
+               anable = item1.A_ID;
+
+           }
+          
+         }
+
+     }
+
+   }
+   var jSstring = JSON.stringify(anable);
+   console.log("您要上传的数据 "+jSstring);
+   return jSstring;
+}
+function gettruearea()
+{
+   var anable = "";
+   console.log("数据 "+JSON.stringify(allareas));
+   var tru = $("#areagroup").val();
+   var trugroup = tru.split(",");
+   for(var i=0;i<trugroup.length;i++)
+   {
+    var item = trugroup[i];
+     for(var j=0;j<allareas.length;j++)
+     {
+         var item1 = allareas[j];
+         if(item == item1.L_Name)
+         {
+           
+           if(anable)
+           {
+
+               anable = anable+","+item1.L_ID;
+           
+           }
+           else
+           {
+
+               anable = item1.L_ID;
+
+           }
+          
+         }
+
+     }
+
+   }
+   
+  $("#areagrouptrue").val(anable);
+
+}
+</script>
+</body>
+</html>

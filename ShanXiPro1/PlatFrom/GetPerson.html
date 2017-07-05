@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>犯人管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-switch.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css" />
+	<style>
+	/*table td 最长列宽设置*/
+	.editable{
+	width :10px;
+	height:13px;
+	}
+	.text-center
+	{
+	    width:140px;
+	    text-align:center;
+	}
+	/*table td 值为数字的列宽设置*/
+	.textnumber
+	{
+		width:65px;
+		text-align:center;
+	}
+	/*table td 值为字符串的列宽设置*/
+	.textname
+	{
+		width:85px;
+		text-align:center;  
+	}
+	/*table td 值为日期的列宽设置*/
+	.texttime
+	{ 
+		width:135px;
+		text-align:center;
+	}
+	/*table td 隐藏的列的宽度设置*/
+	.textno
+	{ 
+		width:10px;
+		text-align:center; 
+	}
+	/*table样式*/
+	.tbcss
+	{
+		padding: 0px;
+		margin: 0px;
+		border-collapse: collapse;
+		border-spacing: 0;
+		font-size: 10pt;
+		width: 100%;
+		border: 1px solid #CDDBE8;
+		background-color: #FFFFFF;
+		table-layout:fixed;
+	}	
+	/*td左边标题样式*/
+	.tdcss1
+	{
+		padding: 2px 6px 2px 6px;
+		border: 1px solid #CDDBE8;
+		height: 22px;
+		background-color: #FCFDFE;
+		text-align: right;
+		vertical-align: middle;
+	}
+	.tdcss11
+	{
+		padding: 1px 1px 1px 1px;
+		border: 1px solid #CDDBE8;
+		height: 22px;
+		background-color: #FCFDFE;
+		text-align: right;
+		vertical-align: middle;
+	}
+	/*td右边标题样式*/
+	.tdcss2
+	{
+		padding: 2px 6px 2px 6px;
+		border: 1px solid #CDDBE8;
+		height: 22px;
+		background-color: #FFFFFF;
+		vertical-align: middle;
+		text-align: left;
+	}	
+	</style>
+</head>
+
+<body>            
+     <div class="row" id="mydivs">
+        <div class="box col-md-12">
+            <div class="box-inner">
+                         <div class="box-header well" data-original-title="">
+                           <label>犯人管理</label>
+                         </div>
+						 <table class="tbcss" id="filter">
+							<!--<tr >
+                                <td class="tdcss1" style="width:1%">
+									<label>区域</label>									
+								</td>
+								
+								<td class="tdcss2" style="width:25%" colspan="1">
+								<div style = "width:15%;">
+									<select data-placeholder="请选择腕带" class=" selectpicker form-control" data-live-search="true" id="areainput" data-rel="chosen" style="width:60%">
+								   <option>56767</option>
+								   <option>56767</option>
+								   <option>56767</option>
+								   </select>
+								   </div>
+								</td>
+                                <td class="tdcss1" style="width:1%">
+									<label>区域</label>									
+								</td>
+
+																
+							</tr>-->
+							<tr>
+								<td class="tdcss1" style="width:3%">
+									<label>姓名</label>									
+								</td>
+								
+								<td class="tdcss2" style="width:15%">
+								    <div >
+									<input id="nameinput" style="width:100%" />
+								   </div>
+								</td>
+								
+								<td class="tdcss1" style="width:15%">
+									<label>时间范围选择</label>
+								</td>
+								<td class="tdcss2" >
+                                    <input  placeholder="开始日期" id="LAY_demorange_s" style="width:30%">到
+                                    <input  placeholder="截止日期" id="LAY_demorange_e" style="width:30%">									
+								</td>								
+							   </tr>
+								<tr>
+								
+								
+								<td class="tdcss1" style="width:15%">
+									<label>状态</label>
+								</td>
+								<td class="tdcss2" >
+								<div >
+								   <select  class=" selectpicker form-control" data-live-search="true" id="stateinput" data-rel="chosen" >
+								   <option value=" ">  </option>
+								   <option value="1">实到</option>
+								   <option value="2">请假</option>
+								   <option value="3">外派</option>
+								   </select>
+								</div>								
+								</td>
+								
+
+							</tr>
+							<tr>
+								<td colspan="4" class="tdcss2">
+									<button class="btn btn-primary "  id = "searchbutton">查询</button>
+									<button class="btn btn-primary "  id = "addperson">添加</button>
+									<!--<button class="btn btn-primary" id="add" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">	
+                                    新增
+								    </button>-->
+									<button class="btn btn-primary "  id = "deletebutton">删除</button>
+									<!--<button class="btn btn-primary "  id = "Grouppost">提交</button>
+									<button class="btn btn-primary "  id = "back">返回</button>-->
+									<div id="collapseOne" class="panel-collapse collapse" style="margin-bottom:10px;margin-top:10px;">
+										<div class="box-content">
+										   <div class="row">
+										     <div class="col-md-5">
+											    <div class="input-group input-group-lg">
+												<span class="input-group-addon">腕带</span>
+												<input type="text" class="form-control" id = "workoutpeople">
+											    </div>
+											 </div>
+											 <div class="col-md-5">
+											      <div class="input-group input-group-lg">
+												  <span class="input-group-addon">原因</span>
+												  <input type="text" class="form-control" id = "workoutpeople">
+											      </div>
+											 </div>
+										     <div class="col-md-2">
+											      <div class="input-group input-group-lg">
+												    <button class="input-group-addon">原因</button>
+											      </div>
+											 </div>
+										   </div>
+										</div>
+	
+								     </div>
+								</td>
+							</tr>
+						 </table>
+				<div class="box-content">
+				   <table class="tbcss table-bordered table-striped table-condensed" id="xunjiantable">
+                        <thead>
+                        <tr>
+						    <th><input id = "allcheck" type="checkbox"/></th>
+						    <th >eid</th>
+                            <th >id</th>
+                            <th >aid</th>
+                            <th >姓名</th>
+							<th >卡号</th>
+							<th >状态ID</th>
+							<th> 状态</th>
+							<th >当前区域</th>
+							<th >上一区域</th>
+							<th >允许区域ID</th>
+							<th >允许区域</th>
+							<th >时间</th>
+							<th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tablebody">
+						</tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- external javascript -->
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/jquery.cookie.js"></script>
+<script src="js/lib/bootstrap-select.js"></script> 
+<script src="js/lib/highlight.js"></script>
+<script src="js/lib/bootstrap-switch.js"></script>
+<script src='js/lib/jquery.dataTables.min.js'></script>
+<script src="layui/layui/layui.js"></script>
+<script src="js/lib/GetPerson.js" ></script>
+<script src="js/lib/charisma.js"></script>
+</body>
+</html>

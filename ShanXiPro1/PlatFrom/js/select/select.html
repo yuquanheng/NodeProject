@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>jQuery bootstrap-select可搜索多选下拉列表插件</title>
+  <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="bootstrap-select.js">
+</script>
+  <link rel="stylesheet" type="text/css" href="bootstrap-select.css">
+
+  <!-- 3.0 -->
+
+  <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+  <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+  <!-- 2.3.2
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+   
+
+ <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.js"></script>
+    -->
+
+  <script type="text/javascript">
+  </script>
+  </head>
+  <body>
+<select id="id_select" class="selectpicker bla bla bli" multiple data-live-search="true">
+    <option value="1">cow</option>
+    <option value="2">bull</option>
+    <option value="3">ASD</option>
+    <option value="4">Bla</option>
+    <option value="5">Ble</option>
+</select>
+<div id="real">dianji</div>
+<script type="text/javascript">
+  
+$(document).ready(function() {
+
+ $('.selectpicker').selectpicker({
+                'selectedText': 'cat'
+            });
+
+
+
+
+
+  $("#real").on('click',function(){
+
+       //testSelect();
+       alert($("#id_select").val());
+    
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>事件设置</title>
+        <link href="css/style.css" rel="stylesheet">
+		<style>
+
+		</style>
+    </head>
+
+<body style="background:#dedede;">
+       
+        <!-- Main content -->
+        <main >
+            <div class="container-fluid">
+			  <div class="container" style="margin:10px auto;text-align:center"><h3>事件设置</h3></div>
+				<div class="container" style="margin-top:100px">
+	   
+				<div class="card">
+                <div class="card-header">
+                    事件设置
+                </div>
+                <div class="card-block">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">姓名</span>
+                                <input id="name" name="username" class="form-control" placeholder="名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">卡号</span>
+                                <input id="RFID" name="email" class="form-control" placeholder="卡号">
+                            </div>
+                        </div>
+                             <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">事件</span>
+                                <select id="event" name="password" class="form-control" placeholder="请选择事件">
+                                
+                                <option value =" " > </option>
+                                <option value ="2" >请假</option>
+                                <option value ="3" >外出</option>
+                                
+                                </select> 
+                            </div>
+                            </div>
+                            <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">区域</span>
+                                <select id="area" name="password" class="form-control" placeholder="请选择事件">
+                                <option value =" " > </option>
+                                </select> 
+                            </div>
+
+                        </div>
+						             <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">描述</span>
+                                <input id="mark" name="password" class="form-control" placeholder="描述">
+                            </div>
+                        </div>
+                        <div class="form-group form-actions">
+                            <button  id="sub"   class="btn btn-sm btn-success" style="float:right">提交</button>
+							           <button id="cancle"  class="btn btn-sm btn-success">取消</button>
+                        </div>
+                </div>
+            </div>
+		  
+				</div>
+			</div>
+        </main>
+
+
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script>
+var allareas = [];//主要用于提交允许区域时进行精确过滤
+$(document).ready(function() {
+      
+       var area = window.localStorage.getItem("OperPerson");
+       var jsss = JSON.parse(area);
+       var areaid = jsss.areaid;
+       var areaname = jsss.areaname;
+       var per =  window.localStorage.getItem("EventPerson");
+       if(per)
+       {
+        var perj = JSON.parse(per);
+        $("#name").val(perj.name);
+        $("#RFID").val(perj.card);
+       }
+
+       $.ajax({  
+           type : "GET",  //提交方式  
+           url : "http://127.0.0.1:3000/dianming/area/getArea?time="+new Date().getTime(),//路径 
+           success : function(data) { 
+                var datalength =data.length;
+                if(datalength)
+                {
+                    $("#area").empty();
+                    $("#area").append('<option value=" ">   </option>');
+                    allareas = data;
+                    console.log("数据组长度 "+datalength);
+                    for(var i=0;i<datalength;i++)
+                    {
+                        var lid = data[i].L_ID;
+                        var lname = data[i].L_Name;
+                        var html = '<option value='+lid+'>'+lname+'</option>';
+                        $("#area").append(html);
+                       
+                    }
+                }
+                
+             }
+            }); 
+        $("#sub").on('click',function(){
+
+         $.ajax({  
+                 type : "POST",  //提交方式  
+                 url : "http://127.0.0.1:3000/dianming/event/add?time="+new Date().getTime(),//路径
+                 data:{areaid:areaid,name:$("#name").val(),rfid:$("#RFID").val(),enent:$("#event").val(),areaname:areaname,toarea:$("#area").val(),toareaname:$("#area option:selected").text()},
+                 success : function(data) { 
+                    
+                    if(data.length)
+                    {
+                        alert("事件信息增加成功");
+                    }
+                    else
+                    {
+                       alert("事件信息增加失败");
+                    }
+                 }
+                });  
+   });
+})
+</script>
+</body>
+</html>

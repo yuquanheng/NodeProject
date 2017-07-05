@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>陕西监狱界面</title>
+        <link href="css/style.css" rel="stylesheet">
+		<style>
+
+		</style>
+    </head>
+    <body class="navbar-fixed sidebar-nav fixed-nav">
+       
+        <!-- Main content -->
+        <main >
+            <div class="container-fluid" style="margin-top:50px">
+			<div class="col-sm-12">
+						<div class="card-group m-b-1">
+						<div id="comeout" class="card btn-info-outline"  style="display:none">
+							<div class="card-block">
+								<div class="h1 text-muted text-xs-right m-b-2">
+									<i class="icon-login"></i>
+								</div>
+								<div class="h4 m-b-0" id="name1">早起点名</div>
+								<small class="text-muted text-uppercase font-weight-bold" id="name11">OutRoom</small>
+								<progress class="progress progress-xs progress-info m-t-1 m-b-0" value="25" max="100">25%</progress>
+							</div>
+						</div>
+						<div id="comein" class="card btn-warning-outline"  style="display:none">
+							<div class="card-block">
+								<div class="h1 text-muted text-xs-right m-b-2">
+									<i class="icon-logout"></i>
+								</div>
+								<div class="h4 m-b-0" id="name2">到达宿舍点名</div>
+								<small class="text-muted text-uppercase font-weight-bold" id="name21">GetRoom</small>
+								<progress class="progress progress-xs progress-success m-t-1 m-b-0" value="25" max="100">25%</progress>
+							</div>
+						</div>
+						<div id="comesleep" class="card btn-warning-outline">
+							<div class="card-block">
+								<div class="h1 text-muted text-xs-right m-b-2">
+									<i class="icon-logout"></i>
+								</div>
+								<div class="h4 m-b-0" id="name2">熄灯前点名</div>
+								<small class="text-muted text-uppercase font-weight-bold" id="name21">BeforeSleep</small>
+								<progress class="progress progress-xs progress-success m-t-1 m-b-0" value="25" max="100">25%</progress>
+							</div>
+						</div>
+						<div id="comesleepout" class="card btn-warning-outline"  >
+							<div class="card-block">
+								<div class="h1 text-muted text-xs-right m-b-2">
+									<i class="icon-logout"></i>
+								</div>
+								<div class="h4 m-b-0" id="name2">熄灯后点名</div>
+								<small class="text-muted text-uppercase font-weight-bold" id="name21">AfterSleep</small>
+								<progress class="progress progress-xs progress-success m-t-1 m-b-0" value="25" max="100">25%</progress>
+							</div>
+						</div>
+						<div id="cometool" class="card btn-warning-outline">
+							<div class="card-block">
+								<div class="h1 text-muted text-xs-right m-b-2">
+								
+									 <div class="btn-group pull-right">
+				                        <div type="button" class="btn  active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				                          <i class="h1 icon-settings"></i>
+				                        </div>
+				                        <div class="dropdown-menu">
+				                            <a class="dropdown-item" href="GetEvent.html">请假设置</a>
+				                            <a class="dropdown-item" href="GetEvent.html">外出设置</a>
+				                            <a class="dropdown-item" href="login.html">退出</a>
+				                        </div>
+				                    </div>
+								</div>
+								<div class="h4 m-b-0" style="margin-top:70px;">当前配置</div>
+								<small class="text-muted text-uppercase font-weight-bold">EDIT</small>
+								<progress class="progress progress-xs progress-success m-t-1 m-b-0" value="25" max="100">25%</progress>
+							</div>
+						</div>
+					</div>
+			    </div>
+			<div class="col-sm-12">
+			    <div class = "row">
+				  <div class = "col-sm-6">
+				  	   <div class="row">
+				  	   	   <div class="col-md-6">
+				  	   	   	   <div class="row" style="margin-top:10px;">
+							    <div  class="h3 col-sm-12"><i class="h1 icon-user" style="background-color:#008080;color:white"></i><span id="all"></span></div>
+							  </div>
+							  <div class="row" style="margin-top:10px;">
+							     <div  class="h3 col-sm-12"><i class="h1 icon-user" style="background-color:#FF4500;color:white"></i> <span id="real"></span></div>
+							  </div>
+							  <div class="row" style="margin-top:10px;">
+							     <div    class="h3 col-sm-12"><i class="h1 icon-user" style="background-color:#228B22;color:white"></i><span id="getday"></span></div>
+							  </div>
+							  <div class="row" style="margin-top:10px;">
+							    <div   class="h3 col-sm-12"><i class="h1 icon-user" style="background-color:#33FFDD;color:white"></i> <span id="getout"></span></div>
+							  </div>
+							  <div class="row" style="margin-top:10px;">
+							    <div id="diserr"  class="h3 col-sm-12"><i class="h1 icon-user" style="background-color:#FF8888;color:white"></i> <span id="err"></span></div>
+								
+							  </div>
+							   <div class="row" style="margin-top:10px;">
+							    <div class="h3 col-sm-12"><i class="h1 icon-speedometer  bg-success"></i> <span id="time"></span></div>
+								<!-- <div class="col-md-2" style="text-align:center" id="time"></div>-->
+							  </div>	
+				  	   	   </div>
+				  	   	   <div class="col-md-6">
+				  	   	   	   <div id="pie"></div>
+				  	   	   </div>  
+				  	   </div>
+				  	   <div class="row">
+				  	  
+							  <div class="col-sm-12 h3 m-b-0">当前操作:<span id="oper"></span> 值班干警:<span id="who"></span></div>	
+
+				  	   </div>
+				  </div>
+				  <div class = "col-sm-6" >
+				  	<div class="row">
+				     <div class="col-sm-12">
+					    <div id="chart2" style="height:150px;"></div>
+					 </div>		
+				   </div>
+				   <div class="row">
+				     <div class="col-sm-12">
+					    <div  id="chart3" style="height:150px;"></div>
+					 </div>		
+				   </div>
+				   <div class="row">
+				     <div class="col-sm-12">  
+					    <div  id="chart4" style="height:150px;"></div>
+					 </div>		
+				   </div>
+				  </div>
+            </div>
+            <!-- /.conainer-fluid -->
+        </div>
+        </main>
+        <footer class="footer ng-scope">
+         <span class="pull-right text-muted">
+               
+         </span>
+        </footer>
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/tether.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+		<script src="js/lib/Chart.min.js"></script>
+		
+		
+		
+		<!--<script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="http://code.highcharts.com/highcharts-3d.js"></script>
+		<script src="http://code.highcharts.com/highcharts-more.js"></script>-->
+        <script src="js/lib/highcharts.js"></script>
+		<script src="js/lib/highcharts-3d.js"></script>
+		<script src="js/lib/highcharts-more.js"></script>
+	
+		<script src="js/lib/chart.js"></script>
+		
+		<script>
+         /* Draw3DPie("pie",[['实到',40],['请假',1],['外派',4],['异常',3]]);
+		  DrawLine("chart2","#0000FF",[1,23,5,6,8,90,11]);
+		  
+		  DrawLine("chart3","#00FF00",[5,66,0,88,44,23,33]);
+		  DrawLine("chart4","#FF4500",[7,6,5,4,3,77,8]);*/
+		</script>
+		
+		<script>
+		$(document).ready(function() {
+		   AjaxGet();
+		   var OPER = window.localStorage.getItem("OPERP");
+		   $("#who").text(OPER);
+		   $("#oper").text(window.localStorage.getItem("OPER"));
+		   var jsss1 = JSON.parse(window.localStorage.getItem("OperPerson"));
+		   var gettime = window.localStorage.getItem("TIME");
+		   console.log("时间 "+gettime);
+           if(gettime)
+           {
+             $("#time").text(gettime);
+           }
+           else
+           {
+             $("#time").text(new Date().Format("yyyy-MM-dd hh:mm:ss").toString());
+           }
+		   $("#comein").on('click',function(){
+		   
+		     
+		      window.localStorage.removeItem("OPER");
+              window.localStorage.setItem("OPER","到达宿舍点名");
+              window.localStorage.removeItem("OPERSTATE");
+              window.localStorage.setItem("OPERSTATE","6");
+              updatedevice(jsss1.areaid,6);
+		      $("#oper").text("到达宿舍点名");
+
+
+			 
+		   });
+		   $("#comeout").on('click',function(){
+		   
+		     
+		      $("#oper").text("早起点名");
+		      window.localStorage.removeItem("OPER");
+              window.localStorage.setItem("OPER","早起点名");
+              window.localStorage.removeItem("OPERSTATE");
+              window.localStorage.setItem("OPERSTATE","1");
+              updatedevice(jsss1.areaid,1);
+
+			 
+		   });
+		   $("#comesleep").on('click',function(){
+		   
+		     
+		      $("#oper").text("熄灯前点名");
+		      window.localStorage.removeItem("OPER");
+              window.localStorage.setItem("OPER","熄灯前点名");
+              window.localStorage.removeItem("OPERSTATE");
+              window.localStorage.setItem("OPERSTATE","7");
+              updatedevice(jsss1.areaid,7);
+
+			 
+		   });
+		   $("#comesleepout").on('click',function(){
+		   
+		     
+		      $("#oper").text("熄灯后点名");
+		      window.localStorage.removeItem("OPER");
+              window.localStorage.setItem("OPER","熄灯后点名");
+              window.localStorage.removeItem("OPERSTATE");
+              window.localStorage.setItem("OPERSTATE","8");
+              updatedevice(jsss1.areaid,8);
+
+			 
+		   });
+		   $('#diserr').click(function(){
+
+ 
+              //window.open("err.html");
+              //window.location.href = "err.html"
+
+             });
+		})
+    function AjaxGet(){
+        
+         //var user = {areaid:area,areaname:areaname};
+         var area = window.localStorage.getItem("OperPerson");
+         var jsss = JSON.parse(area);
+
+          $.ajax({  
+  
+           type : "GET",  //提交方式  
+           url : "http://127.0.0.1:3000/dianming/prison/view?area="+jsss.areaid+"&time="+new Date().getTime(),//路径 
+           success : function(result) { 
+			  
+                 console.log("主页返回时速局 "+result);
+                 var all = result.all;
+                 var real =result.real;
+                 var getday =result.getday;
+                 var getout =result.getout;
+                 var errp = result.err;
+                 
+                 $("#all").text(" 总人数:"+all);
+                 $("#real").text(" 实到:"+real);
+                 $("#getday").text(" 请假:"+getday);
+                 $("#getout").text("外出:"+getout);
+                 $("#err").text("异常:"+errp);
+                 
+                 console.log("饼状图数据");
+                 Draw3DPie("pie",[['实到',real],['请假',getday],['外派',getout],['异常',errp]]);
+				 
+
+				 GetSum(getdays(),jsss.areaid,"统计图",all);
+             }
+            });	
+           
+    }
+   /* setInterval(function(){
+     
+     $("#time").text(new Date().Format("yyyy-MM-dd hh:mm:ss").toString());
+
+    },1000);
+     */
+     function getdays()
+     {
+        var dat = [];
+	    for(var i=0;i<7;i++)
+		{
+			var dd = new Date();
+			dd.setDate(dd.getDate()-i);//获取AddDayCount天后的日期
+			var y = dd.getFullYear();
+	        var m = dd.getMonth()+1;//获取当前月份的日期
+	        var d = dd.getDate();
+	        console.log("月 "+m+" "+m.length);
+	        console.log("天 "+d+" "+d.length);
+	        if(m <10)
+	        {
+              m="0"+m;
+	        }
+	        if(d<10)
+	        {
+	        	d="0"+d;
+	        }
+			dat.push(y+"-"+m+"-"+d);
+			
+		}
+		   dd.setDate(dd.getDate()+7);//获取AddDayCount天后的日期
+			var y = dd.getFullYear();
+	        var m = dd.getMonth()+1;//获取当前月份的日期
+	        var d = dd.getDate();
+	        console.log("月 "+m+" "+m.length);
+	        console.log("天 "+d+" "+d.length);
+	        if(m <10)
+	        {
+              m="0"+m;
+	        }
+	        if(d<10)
+	        {
+	        	d="0"+d;
+	        }
+			
+        var revser = dat.reverse();
+        revser.push(y+"-"+m+"-"+d);
+        return revser;
+     }
+     function GetSum(arr,id,name,all)
+     {
+     	   console.log("arr "+arr);
+        
+           $.ajax({  
+  
+                   type : "post",  //提交方式  
+                   url : "http://127.0.0.1:3000/dianming/event/sum?time="+new Date().getTime(),//路径
+                   data:{'time':JSON.stringify(arr),'area':id},
+                   success : function(result) { 
+			           
+			           console.log("hsdsjj "+result.getday+" "+result.getout);
+                         
+                        var real = [];
+                        var getday = result.getday;
+                        var getout = result.getout;
+			           for(var i=0;i<7;i++)
+			           {
+                         
+                         var day = all-getday[i]-getout[i];
+                         real.push(day);
+
+			           }
+			           console.log("shidao "+real+" day "+getday+" getout "+getout);
+
+			           DrawLine("chart2","#0000FF",real,"实到人数 7天趋势图","实到人数");
+				  
+					   DrawLine("chart3","#00FF00",result.getday,"请假人数 7天趋势图","请假人数");
+					   DrawLine("chart4","#FF4500",result.getout,"外出人数 7天趋势图","外出人数");
+
+                   } 
+            });	
+
+
+     }
+    Date.prototype.Format = function (fmt) { //author: meizz 
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "h+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+      }
+       function updatedevice(area,state){
+                   $.ajax({  
+  
+                   type : "get",  //提交方式  
+                   url : "http://127.0.0.1:3000/dianming/device/upstate?area="+area+"&state="+state+"&time="+new Date().getTime(),//路径
+                   success : function(result) { 
+                   	window.location.href = "indexdianming.html"
+			       
+                   } 
+            });	
+
+      }
+		</script>
+    </body>
+</html>

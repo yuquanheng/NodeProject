@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>警员区域设置</title>
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/bootstrap-select.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+		<style>
+
+		</style>
+    </head>
+
+<body style="background:#dedede;">
+       
+        <!-- Main content -->
+        <main >
+            <div class="container-fluid">
+			  <div class="container" style="margin:10px auto;text-align:center"><h3>警员区域设置</h3></div>
+				<div class="container" style="margin-top:100px">
+	   
+				<div class="card">
+                <div class="card-header">
+                    警员区域设置
+                </div>
+                <div class="card-block">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">名称</span>
+                                <input id="name" name="username" class="form-control" placeholder="名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">电话</span>
+                                <input id="phone" name="email" class="form-control" placeholder="电话">
+                            </div>
+                        </div>
+                        <div>
+                          <div class = "row">
+                            <div class="form-group col-sm-8">
+                             <div class="input-group">
+                                <span class="input-group-addon">区域</span>
+                                <input id="areagroup" name="email" class="form-control" placeholder="区域">
+                             </div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">请选择区域</span>
+                               <select id="area" name="password" class="form-control" placeholder="请选择区域">
+                                <option  ></option>
+                                </select> 
+                            </div>
+                        </div>
+                          </div>
+                        </div>
+						             <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">描述</span>
+                                <input id="mark" name="password" class="form-control" placeholder="描述">
+                            </div>
+                        </div> 
+                        <div class="form-group form-actions">
+                            <button  id="sub"   class="btn btn-sm btn-success" style="float:right">提交</button>
+							<button id="cancle"  class="btn btn-sm btn-success">取消</button>
+                        </div>
+                </div>
+            </div>
+		  
+				</div>
+			</div>
+        </main>
+
+
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/bootstrap.select.js"></script>
+<script>
+//
+var allareas = [];//主要用于提交允许区域时进行精确过滤
+$(document).ready(function() {
+          
+          //首先加载所有区域 来为当前警员进行分配
+          //var user = {'id':aData[1],'phone':aData[3],'name':aData[2],'areagroup':aData[4]};
+           var jss = window.localStorage.getItem("GuardID");
+           var guards = JSON.parse(jss);
+           $("#name").val(guards.name);
+           $("#phone").val(guards.phone);
+           $("#areagroup").val(guards.areagroup);
+
+           $.ajax({  
+           type : "GET",  //提交方式  
+           url : "http://127.0.0.1:3000/dianming/area/getArea?time="+new Date().getTime(),//路径 
+           success : function(data) { 
+                var datalength =data.length;
+                if(datalength)
+                {
+                    $("#area").empty();
+                    $("#area").append('<option value=" ">   </option>');
+                    allareas = data;
+                    console.log("数据组长度 "+datalength);
+                    for(var i=0;i<datalength;i++)
+                    {
+                        var lid = data[i].L_ID;
+                        var lname = data[i].L_Name;
+                        var html = '<option value='+lid+'>'+lname+'</option>';
+                        $("#area").append(html);
+                       
+                    }
+                }
+                
+             }
+            }); 
+         var user =""
+         var option ="";
+         
+         $("#area").change(function(){
+
+             var select = $("#area option:selected").text();//本次选中的区域
+             var alla = $("#areagroup").val();
+             if(alla>0)
+             {
+                if(alla.indexOf(select) >=0)
+                {
+                  console.log("重复数据");
+                }
+                else
+                {
+                  alla = alla +","+select;  
+                }
+               
+             }
+             else
+             {
+              alla = select;
+             }
+           $("#areagroup").val(alla);
+         });
+        
+        //点击进行提交数据
+        $("#sub").on('click',function(){
+
+             $.ajax({  
+                     type : "POST",  //添加新犯人 
+                     url : "http://127.0.0.1:3000/dianming/guard/updateArea?time="+new Date().getTime(),//路径 
+                     data:{userid:guards.id,name:$("#name").val(),phone:$("#phone").val(),anablearea:gettruearea(),anableareaname:$("#areagroup").val()},
+                     success : function(data) { 
+                        
+                        if(data.length)
+                        {
+                            alert("警员区域信息更新成功");
+                        }
+                        else
+                        {
+                         
+                           alert("警员区域信息更新失败");
+
+                        }
+                        
+                     }
+                  }); 
+             
+   });
+          
+ 
+})
+function gettruearea()
+{
+   var anable = "";
+   console.log("数据 "+JSON.stringify(allareas));
+   var tru = $("#areagroup").val();
+   var trugroup = tru.split(",");
+   for(var i=0;i<trugroup.length;i++)
+   {
+    var item = trugroup[i];
+     for(var j=0;j<allareas.length;j++)
+     {
+         var item1 = allareas[j];
+         if(item == item1.L_Name)
+         {
+           
+           if(anable)
+           {
+
+               anable = anable+","+item1.L_ID;
+           
+           }
+           else
+           {
+
+               anable = item1.L_ID;
+
+           }
+          
+         }
+
+     }
+
+   }
+   
+   var jSstring = JSON.stringify(anable);
+   console.log("您要上传的数据 "+jSstring);
+   return jSstring;
+
+}
+</script>
+</body>
+</html>
