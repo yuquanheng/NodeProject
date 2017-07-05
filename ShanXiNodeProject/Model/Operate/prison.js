@@ -185,7 +185,34 @@ func.DelPrison = function(data){
       });
      return defered.promise;
 }
+func.getRealView = function(area){
+	
+  var defered = Q.defer();
+  var sql = "select CheckState from SYS_PrisonInfo where A_ID = "+area+" and CheckState in (2,5,6)";
+   
+  QueryData(sql).done(function(data){
+     
+         console.log("实际人数查询信息成功");
+		 var real = 0;
+		 for(var i=0;i<data.length;i++)
+		 {
+			 var item = data[i];
+			 if(item.CheckState == "2")
+			 {
+				 real++;
+			 }
+		 }
+         defered.resolve([real,data.length - real]);
 
+      },function(err){
+
+          console.log("实际人数查询信息失败");
+          defered.reject(err);
+      });
+     return defered.promise;
+	
+	
+}
 func.getView = function(area){
   
   var defered = Q.defer();

@@ -97,7 +97,7 @@ function Draw3DPie(ele,dt)
         },
         plotOptions: {
             pie: {
-                size:'90%',
+                size:'70%',
                 borderWidth: 0,
                 allowPointSelect: true,
                 cursor: 'pointer',

@@ -73,6 +73,21 @@ router.get('/prison/view', function (req, res, next) {
    })
     
 })
+router.get('/prison/realview', function (req, res, next) {
+     
+       var req = new Paras(req).GetParas();
+       var area = req.area.trim();
+       prison.getRealView(area).done(function(data){
+       
+       console.log("饼状图数据 "+JSON.stringify(data));
+       res.send(JSON.stringify(data));
+     
+   },function(err){
+
+        res.send([]);
+   })
+    
+})
 router.get('/prison/query', function (req, res, next) {
      
        var req = new Paras(req).GetParas();

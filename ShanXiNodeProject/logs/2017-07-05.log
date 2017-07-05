@@ -1,0 +1,66 @@
+[2017-07-05 16:13:29.922] [INFO] dateFileLog - connect success
+[2017-07-05 16:13:29.924] [INFO] dateFileLog - connect success
+[2017-07-05 16:13:29.924] [INFO] dateFileLog - connect success
+[2017-07-05 16:13:29.925] [INFO] dateFileLog - connect success
+[2017-07-05 16:13:30.038] [INFO] dateFileLog - connect success
+[2017-07-05 16:13:30.038] [INFO] dateFileLog - connect success
+[2017-07-05 16:13:49.804] [INFO] dateFileLog - connect err:ConnectionError: Failed to connect to 220.248.36.100:1433 in 15000ms
+[2017-07-05 16:13:52.516] [INFO] dateFileLog - connect success
+[2017-07-05 16:13:52.518] [INFO] dateFileLog - connect success
+[2017-07-05 16:13:52.518] [INFO] dateFileLog - connect success
+[2017-07-05 16:13:56.032] [INFO] dateFileLog - connect success
+[2017-07-05 16:14:14.800] [INFO] dateFileLog - connect err:ConnectionError: Failed to connect to 220.248.36.100:1433 in 15000ms
+[2017-07-05 16:14:17.221] [INFO] dateFileLog - connect success
+[2017-07-05 16:14:17.234] [INFO] dateFileLog - connect success
+[2017-07-05 16:14:17.279] [INFO] dateFileLog - connect success
+[2017-07-05 16:14:19.810] [INFO] dateFileLog - connect success
+[2017-07-05 16:14:39.804] [INFO] dateFileLog - connect err:ConnectionError: Failed to connect to 220.248.36.100:1433 in 15000ms
+[2017-07-05 16:14:44.801] [INFO] dateFileLog - connect err:ConnectionError: Failed to connect to 220.248.36.100:1433 in 15000ms
+[2017-07-05 16:15:21.759] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.759] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.791] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.793] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.821] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.826] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.854] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.855] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.876] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.876] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.905] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:21.905] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:24.810] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:29.810] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:34.826] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:34.838] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:54.801] [INFO] dateFileLog - connect err:ConnectionError: Failed to connect to 220.248.36.100:1433 in 15000ms
+[2017-07-05 16:15:56.484] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:56.500] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:56.522] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:59.900] [INFO] dateFileLog - connect success
+[2017-07-05 16:15:59.900] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:19.801] [INFO] dateFileLog - connect err:ConnectionError: Failed to connect to 220.248.36.100:1433 in 15000ms
+[2017-07-05 16:16:21.071] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:21.072] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:21.107] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:26.967] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:26.967] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:37.301] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:37.301] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:37.324] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:54.810] [INFO] dateFileLog - connect err:ConnectionError: Failed to connect to 220.248.36.100:1433 in 15000ms
+[2017-07-05 16:16:59.570] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:59.570] [INFO] dateFileLog - connect success
+[2017-07-05 16:16:59.571] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:02.678] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:19.801] [INFO] dateFileLog - connect err:ConnectionError: Failed to connect to 220.248.36.100:1433 in 15000ms
+[2017-07-05 16:17:24.252] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:24.253] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:24.321] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:24.808] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:44.800] [INFO] dateFileLog - connect err:ConnectionError: Failed to connect to 220.248.36.100:1433 in 15000ms
+[2017-07-05 16:17:48.506] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:48.507] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:48.527] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:48.527] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:49.814] [INFO] dateFileLog - connect success
+[2017-07-05 16:17:54.813] [INFO] dateFileLog - connect success

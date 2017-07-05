@@ -12,7 +12,7 @@ Excelobject.prototype.product = function(res,req,name){
 	var buffer = xlsx.build([{'name': "mySheetName", 'data':this.data }]);
 	this.res.setHeader("Pragma","public");
 	this.res.setHeader("Content-Type", 'application/x-msexecl;name="xxx.xls";charset=utf-8');
-	var browser = this.CheckBroser();
+	var browser = this.CheckBroser();    
 	if(/firefox/gi.test(browser))
 	{
 		console.log("火狐浏览器");

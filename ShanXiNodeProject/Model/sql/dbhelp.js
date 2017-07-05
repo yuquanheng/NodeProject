@@ -10,7 +10,7 @@ db.querydata=function(sqlselect,connectionkey,callback)
      connection.on('connect', function(err) {
 		      if(err)
 					{
-						console.log('connect err');
+						console.log('connect err:'+err);
             logger.info('connect err:'+err); 
 						return;
 					}

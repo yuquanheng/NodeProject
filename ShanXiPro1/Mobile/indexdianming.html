@@ -82,41 +82,60 @@
 $(document).ready(function(){
     var area = window.localStorage.getItem("OperPerson");
     var op = window.localStorage.getItem("OPER");
-   var work =  window.localStorage.getItem("OPERSTATE");
+    var work =  window.localStorage.getItem("OPERSTATE");
     var jsss = JSON.parse(area);
     $("#titlename").text(""+jsss.areaname+op);
     $("#cont").text(""+jsss.areaname+op);
+	var allpeo = "";
+	$.ajax({  
+	   type : "get",  //提交方式  
+	   url  : "http://127.0.0.1:3000/dianming/prison/view?area="+jsss.areaid+"&workstate="+work+"&time="+new Date().getTime(),//路径  
+	   success : function(result){//返回数据根据结果进行相应的处理  
+		  console.log("主页返回时速局 "+result);
+			 
+			 var all = result.all;
+			 var real =result.real;
+			 var getday =result.getday;
+			 var getout =result.getout;
+			 var errp = result.err;
+			
+			 allpeo = all;
+			 $("#all").text("总人数:"+all);
+			 $("#real").text("应到:"+real);
+			 $("#getday").text("请假:"+getday);
+			 $("#getout").text("外出:"+getout);
+			 $("#errs").text("异常:"+errp);
+			 
+			 $('#demo-1').waterbubble({txt: '总数:'+all,data:1,});
+			 $('#demo-2').waterbubble({waterColor: 'rgb(255,255,0)',txt: '实到'+real,data:real/all});
+			 $('#demo-3').waterbubble({txt: '请假:'+getday,data:getday/all});
+			 $('#demo-4').waterbubble({txt: '外派:'+getout,data:getout/all});
+
+		 }
+
+	 });
     var inter = setInterval(function(){
              console.log("定时点名");
              $.ajax({  
 		           type : "get",  //提交方式  
-		           url  : "http://127.0.0.1:3000/dianming/prison/view?area="+jsss.areaid+"&workstate="+work+"&time="+new Date().getTime(),//路径  
+		           url  : "http://127.0.0.1:3000/dianming/prison/realview?area="+jsss.areaid+"&time="+new Date().getTime(),//路径  
 		           success : function(result){//返回数据根据结果进行相应的处理  
 				      console.log("主页返回时速局 "+result);
 		                 
-                         var all = result.all;
-		                 var real =result.real;
-		                 var getday =result.getday;
-		                 var getout =result.getout;
-		                 var errp = result.err;
+                        
+		                 var real =result[0];
+		                 var errp = result[1];
 		                
 		                 
-		                 $("#all").text("总人数:"+all);
 		                 $("#real").text("应到:"+real);
-		                 $("#getday").text("请假:"+getday);
-		                 $("#getout").text("外出:"+getout);
 		                 $("#errs").text("异常:"+errp);
 		                 
-		                 $('#demo-1').waterbubble({txt: '总数:'+all,data:1,});
-						 $('#demo-2').waterbubble({waterColor: 'rgb(255,255,0)',txt: '实到'+real,data:real/all});
-						 $('#demo-3').waterbubble({txt: '请假:'+getday,data:getday/all});
-						 $('#demo-4').waterbubble({txt: '外派:'+getout,data:getout/all});
-
+						 $('#demo-2').waterbubble({waterColor: 'rgb(255,255,0)',txt: '实到'+real,data:real/allpeo});
          			 }
 
    				 });
          
-},2000);
+},5000);
 /*$('#demo-1').waterbubble({txt: '总数:90',data: 0.9,});
 $('#demo-2').waterbubble({waterColor: 'rgb(255,255,0)',txt: '实到'});
 $('#demo-3').waterbubble({txt: '请假:10',data:0.1});

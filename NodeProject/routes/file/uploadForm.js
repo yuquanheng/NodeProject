@@ -9,7 +9,7 @@ function  Formatform(req,res)
      var form = new formidable.IncomingForm(); 
      var post = {};
 	 var imagepath = "";
-	 var idcard ="";
+	 var idcard ="";    
      file = {};
      form.uploadDir = './public/images';  //文件上传 临时文件存放路径 
      form.keepExtensions = true;//保存扩展名
