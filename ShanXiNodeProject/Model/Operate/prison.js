@@ -1,18 +1,12 @@
 ﻿var express = require('express');
 var router = express.Router();
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request; 
-var myconnect = require('../sql/dbhelp');
-var sqlconfig = require('../sql/sqlconfig');
+var ConnectionPool = require('../sql/sqltediouspoll'); 
 var Paras = require('../request/ParseRequestBody');
+var logger = require('../../util/log').logger; 
 var moment = require('moment');
 var Q = require("q");
 var events = require('events'); 
 var emitter = new events.EventEmitter(); 
-//用户名，密码和数据库服务器,数据库   
-var mongoose = require('mongoose'); 
-var config = sqlconfig;
-/* GET home page. */
 var func = {};
 
 String.prototype.trim = function() {
@@ -94,6 +88,28 @@ function AddInto(data)
       });
      return defered.promise;
 
+}
+func.test = function (){
+      
+  /*var defered = Q.defer();
+  var sql = "select top 7 * from dbo.GIS_OnLine";
+  console.time("执行时长test:");
+  QueryData(sql).done(function(data){
+     
+		 console.timeEnd("执行时长test:");
+         defered.resolve(data);
+
+      },function(err){
+          defered.reject(err);
+      });
+     return defered.promise;*/
+	 var sql = "select top 7 * from SYS_PrisonInfo";
+	 console.log("执行时长sqltest");
+	 ConnectionPool.exec(sql,function(data){
+		 
+		 console.log("返回数据长度 "+JSON.stringify(data));
+		 
+	 });
 }
 func.AddPrison = function (data){
       
@@ -189,7 +205,7 @@ func.getRealView = function(area){
 	
   var defered = Q.defer();
   var sql = "select CheckState from SYS_PrisonInfo where A_ID = "+area+" and CheckState in (2,5,6)";
-   
+  console.time("Circletime:");
   QueryData(sql).done(function(data){
      
          console.log("实际人数查询信息成功");
@@ -202,6 +218,7 @@ func.getRealView = function(area){
 				 real++;
 			 }
 		 }
+		 console.timeEnd("Circletime:");
          defered.resolve([real,data.length - real]);
 
       },function(err){
@@ -216,12 +233,13 @@ func.getRealView = function(area){
 func.getView = function(area){
   
   var defered = Q.defer();
-  var sql = "select * from SYS_PrisonInfo where CHARINDEX('"+area+"',AreaGroup)>0 or A_ID = "+area;
-   
+  var sql = "select * from SYS_PrisonInfo where A_ID = "+area+" or CHARINDEX('"+area+"',AreaGroup)>0 ";
+  console.time("执行时长1");
   QueryData(sql).done(function(data){
      
          console.log("删除犯人信息成功");
          var bac = getViewdata(data);
+		 console.timeEnd("执行时长2");
          defered.resolve(bac);
 
       },function(err){
@@ -339,24 +357,18 @@ function getinerr(data)
 function QueryData(sql){
 
   var defered = Q.defer();
-  var connect = new Connection(config);
-  myconnect.querydata(sql,connect,function(err,data){
-    
-    if(err){
-
-     console.log(err);
-     defered.reject(err);
-
-    }
-    else
-    {
-     
-     defered.resolve(data);
-     
-    }
-  });
+  ConnectionPool.exec(sql,function(data){
+		 
+		 if(data.length > 0)
+		 {
+			 defered.resolve(data);
+		 }
+		 else
+		 {
+			 defered.reject("没有数据");
+		 }
+	 });
  return defered.promise;
 }
-
 func.querysql = QueryData;
 module.exports = func;

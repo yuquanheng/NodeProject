@@ -1,16 +1,11 @@
 var express = require('express');
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request; 
-var myconnect = require('../sql/dbhelp');
-var sqlconfig = require('../sql/sqlconfig');
+var ConnectionPool = require('../sql/sqltediouspoll');
 var Paras = require('../request/ParseRequestBody');
+var logger = require('../../util/log').logger; 
 var moment = require('moment');
 var EventEmitter = require('events').EventEmitter; 
 var event = new EventEmitter();
-var Q = require("q");
-//用户名，密码和数据库服务器,数据库   
-var mongoose = require('mongoose'); 
-var config = sqlconfig;
+var Q = require("q"); 
 var func = {};
 
 String.prototype.trim = function() {
@@ -55,11 +50,11 @@ function QueryData(sql){
  return defered.promise;
 }
 
-function clearForeign(foreignsql,sql)
-{
+function QueryData(sql){
+
   var defered = Q.defer();
-  var connect = new Connection(config);
-  myconnect.querydata(foreignsql,connect,function(err,data){
+  /*var connect = new Connection(config);
+  myconnect.querydata(sql,connect,function(err,data){
     
     if(err){
 
@@ -70,13 +65,22 @@ function clearForeign(foreignsql,sql)
     else
     {
      
-     console.log("消除外键影响");
-     defered.resolve(sql);
+     defered.resolve(data);
      
     }
-  });
+  });*/
+  ConnectionPool.exec(sql,function(data){
+		 
+		 if(data.length > 0)
+		 {
+			 defered.resolve(data);
+		 }
+		 else
+		 {
+			 defered.reject("没有数据");
+		 }
+	 });
  return defered.promise;
 }
-
 func.querysql = QueryData;
 module.exports = func;

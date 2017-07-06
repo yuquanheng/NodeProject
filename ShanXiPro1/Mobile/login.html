@@ -116,8 +116,8 @@
                     关闭
                 </button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+        </div>
+    </div>
 </div>
         <div class="container center">
             <div class="row">
@@ -168,6 +168,8 @@
             $('#myModal').modal('hide');
             $("#login").on('click',function(event){
                  
+				 $('#myModal').modal('hide');
+				 console.log("人员名字 "+$("#name").val());
                  window.localStorage.removeItem("OPERP");
                  window.localStorage.setItem("OPERP",$("#name").val());
                  $.ajax({  

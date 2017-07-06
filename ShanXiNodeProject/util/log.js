@@ -20,7 +20,7 @@ log4js.configure({
     ],  
     replaceConsole: true,   //替换console.log  
     levels:{  
-        dateFileLog: 'INFO',  
+        dateFileLog: 'dubug',  
         console: 'debug'  
     }  
 });  

@@ -1,16 +1,9 @@
 ﻿var express = require('express');
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request; 
-var myconnect = require('../sql/dbhelp');
-var sqlconfig = require('../sql/sqlconfig');
+var ConnectionPool = require('../sql/sqltediouspoll');
 var Paras = require('../request/ParseRequestBody');
+var logger = require('../../util/log').logger; 
 var moment = require('moment');
 var Q = require("q");
-//用户名，密码和数据库服务器,数据库   
-var mongoose = require('mongoose'); 
-var config = sqlconfig;
-/*
-*/
 var func = {};
 
 String.prototype.trim = function() {
@@ -235,22 +228,17 @@ func.UpdateGuard = function (data){
 function QueryData(sql){
 
   var defered = Q.defer();
-  var connect = new Connection(config);
-  myconnect.querydata(sql,connect,function(err,data){
-    
-    if(err){
-
-     console.log(err);
-     defered.reject(err);
-
-    }
-    else
-    {
-     
-     defered.resolve(data);
-     
-    }
-  });
+  ConnectionPool.exec(sql,function(data){
+		 
+		 if(data.length > 0)
+		 {
+			 defered.resolve(data);
+		 }
+		 else
+		 {
+			 defered.reject("没有数据");
+		 }
+	 });
  return defered.promise;
 }
 func.querysql = QueryData;
