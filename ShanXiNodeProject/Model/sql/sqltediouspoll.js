@@ -10,8 +10,9 @@ ExecStateMent.exec = function(sql,callback)
     min: 4,
     max: 10
     //log: true
-    };
-
+    }; 
+    
+	
     var connectionConfig = {
       userName: 'sa',  
 	  password: 'xinyun!2#4',  
